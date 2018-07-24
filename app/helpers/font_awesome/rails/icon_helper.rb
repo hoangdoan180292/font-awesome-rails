@@ -40,6 +40,14 @@ module FontAwesome
         Private.icon_join(icon, text, right_icon)
       end
 
+      def icon(key:, value:, text: '', icon_position: :left)
+        if icon_position == :left
+          "<i class='#{key} fa-#{value} left'></i>&nbsp;#{text}".html_safe
+        else
+          "#{text}&nbsp;<i class='#{key} fa-#{value} right'></i>".html_safe
+        end
+      end
+
       # Creates an stack set of icon tags given a base icon name, a main icon
       # name, and possible icon modifiers.
       #
